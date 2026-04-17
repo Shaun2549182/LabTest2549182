@@ -29,6 +29,8 @@ def findTop(f,num_col, mark_col):
         if mark > best: # If current mark is better than previous best mark, update best mark to current mark, and student number to current position in number column
             best=mark
             best_idx = data[num_col]
+    if best > 100:
+        raise ValueError("Highest mark above 100")
     return best_idx, best
 
 f = open(sys.argv[1]) # Prompt user for input file name
