@@ -6,6 +6,7 @@ def getCols(f):
     ''' Identify the columns that contain the marks and student numbers '''
     headings = f.readline().strip().split(",") # Make a list headings, reading the first line of the csv, seperating by commas. 
     mark_col = None
+    num_col = None
     i = 0 # The starting value for the for loop to iterate through
     for head in headings: #Iterate through the size of the list headings
         if head == "Student Number": 
@@ -13,9 +14,8 @@ def getCols(f):
         elif head == "Mark" :
             mark_col = i # When the string Mark is found, set the value of mark_col to i
         i += 1 # Increment i each time the for loop repeats
-
-        if mark_col is None:
-            raise ValueError("Could not find Mark column in file")
+    if mark_col is None:
+        raise ValueError("Could not find Mark column in file")
     return (num_col, mark_col)
 
 def findTop(f,num_col, mark_col):
