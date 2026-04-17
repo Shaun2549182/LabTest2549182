@@ -16,6 +16,8 @@ def getCols(f):
         i += 1 # Increment i each time the for loop repeats
     if mark_col is None:
         raise ValueError("Could not find Mark column in file")
+    elif num_col is None:
+       raise ValueError("Could not find Student Number column in file")
     return (num_col, mark_col)
 
 def findTop(f,num_col, mark_col):
